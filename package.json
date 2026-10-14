@@ -1,0 +1,21 @@
+{
+  "name": "chartkeep-mcp",
+  "private": true,
+  "description": "Self-hosted MCP server and Alexa+ web simulator for grounded CSV Q&A and charts.",
+  "workspaces": [
+    "server",
+    "simulator"
+  ],
+  "scripts": {
+    "dev": "concurrently -n mcp,ui -c yellow,cyan \"npm run dev -w server\" \"npm run dev -w simulator\"",
+    "start": "npm run dev",
+    "test": "npm run test -w server",
+    "build": "npm run build -w server && npm run build -w simulator"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
